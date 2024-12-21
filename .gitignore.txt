@@ -1,0 +1,9 @@
+# Ignore Python virtual environment directories
+.venv/
+venv/
+
+# Ignore IDE configuration files
+.idea/
+
+# Ignore SQLite database file
+db.sqlite3

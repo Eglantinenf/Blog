@@ -6,7 +6,6 @@ class PostViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-# Add the react_app view if you're serving a React frontend
 from django.shortcuts import render
 
 def react_app(request):

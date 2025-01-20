@@ -10,8 +10,9 @@
         <h3>
         <a href="{{post.get_absolute_url}}"> {{ post.title }} </a>
         </h3>
-        <p>{{ post.description|truncatewords:5 }}</p>
+        <p class="descr">{{ post.description|truncatewords:5 }}</p>
         </li>
     {% endfor %}
 </ol>
+    {% include "partials/pagination.html" with page_obj=posts %}
 {% endblock %}

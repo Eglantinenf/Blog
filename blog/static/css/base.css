@@ -15,10 +15,11 @@ body {
 h1 {
     width: 350px;
     height: 70px;
-	background-color: #6c51f1;
-	color: aliceblue;
+	background-color: #ffffff;
+	color: #000000;
 	text-align: center;
-	border-bottom: 5px solid #491dff;
+	border-top: 5px solid #8644fb;
+	border-bottom: 5px solid #8644fb;
 	border-radius: 10px;
 	margin: 20px auto;
 	padding: 10px;
@@ -28,6 +29,11 @@ h1 {
 p {
 	margin: 0;
 	line-height: 1.6;
+}
+.descr {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 10px;
 }
 
 ol {
@@ -102,4 +108,10 @@ h3::before {
 	h3::before {
 		margin-right: 1.5rem;
 	}
+}
+.pagination{
+	width: 500px;
+	margin: 0 auto;
+	margin-top: -15px;
+	text-align: center;
 }

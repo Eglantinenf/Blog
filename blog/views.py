@@ -1,28 +1,13 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404
-from . models import Post
-from django.core.paginator import Paginator
-# Create your views here.
+from rest_framework import viewsets
+from .models import Post
+from .serializers import PostSerializer
 
-def index(request):
-    return HttpResponse("index")
+class PostViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
-def post_list(request):
-    posts = Post.published.all()
-    paginator = Paginator(posts, 2)
-    page_number = request.GET.get('page', 1)
-    posts = paginator.page(page_number)
-    context = {
-        'posts' : posts,
-    }
-    return render(request, "blog/list.html", context)
+# Add the react_app view if you're serving a React frontend
+from django.shortcuts import render
 
-
-def post_detail(request, id):
-    post = get_object_or_404(Post, id=id, status=Post.Status.PUBLISHED)
-
-    context = {
-        'post': post,
-    }
-    return render(request, "blog/detail.html", context)
-
+def react_app(request):
+    return render(request, 'blog/react_app.html')

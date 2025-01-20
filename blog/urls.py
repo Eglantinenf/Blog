@@ -1,10 +1,14 @@
-from django.urls import path
-from . import views
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import PostViewSet, react_app
 
-app_name = "blog"
+# Define the app_name
+app_name = 'blog'
+
+router = DefaultRouter()
+router.register(r'posts', PostViewSet)  # Register the PostViewSet
 
 urlpatterns = [
-    path('', views.index, name="index"),
-    path('posts/', views.post_list, name="post_list"),
-    path('posts/<int:id>', views.post_detail, name="post_detail")
+    path('', include(router.urls)),  # Include DRF router URLs
+    path('react/', react_app, name='react_app'),  # Serve React app at /react/
 ]
